@@ -1,0 +1,1942 @@
+
+
+
+ 
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>PythonCamp Cologne</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+
+        <link rel="stylesheet" type="text/css" media="screen" href="/static//css/public_components.css" />
+        <link href="/static/css/font-awesome.css" rel="stylesheet">
+        <link href="/static/css/gfonts.css" rel="stylesheet">
+        <link href="/static/css/bootstrap.css" rel="stylesheet">
+        <link href="/static/css/colorbox.css" rel="stylesheet">
+        <link href="/uploader/static/css/fileuploader.css" rel="stylesheet">
+
+        <script src='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.js'></script>
+        <link href='https://api.mapbox.com/mapbox.js/v2.2.2/mapbox.css' rel='stylesheet' />
+
+        <style>
+            body {
+                padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+            }
+        </style>
+
+        
+        
+        
+
+        <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/static/img/favicon.ico" type="image/x-icon">
+ 
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/TweenMax.min.js"></script>
+
+        
+    
+    <meta property="og:title" content="PythonCamp Cologne" />
+    <meta property="og:site_name" content="PythonCamp Cologne" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://barcamptools.eu/pycamp201804/" />
+    <meta property="og:image" content="https://barcamptools.eu/assets/71851312-5751-4647-85b3-6dcec661ec4a" />
+    <meta property="og:description" content="Barcamp zur Programmiersprache Python und Einsatz im Bereich Web Development, Automatisierung, Scientific Computing" />
+    
+    
+    <link rel="index" title="PythonCamp Cologne" href="/pycamp201804/" />
+    <link rel="canonical" href="https://barcamptools.eu/pycamp201804/" />
+    <meta name="description" content="Barcamp zur Programmiersprache Python und Einsatz im Bereich Web Development, Automatisierung, Scientific Computing" />
+
+    <style>
+        body, #barcamppage {
+            
+            background-color: #fcfcfa;
+            color: #333333;
+        } 
+        
+        #barcamppage p a, #barcamppage .byline a { color: #337cbb; }
+        #barcamppage p a:hover, #barcamppage .byline a:hover  { color: #337cbb; }
+
+        #barcamppage .byline { color: #333333; }
+
+        #barcamp-details, #bloglisting {
+            color: #333333;
+        }
+         #bc-header {
+            background-color: #ffffff;
+        }
+
+        #barcamppage .navbar-barcamp .navbar-nav > li > a {
+            color: #888888;
+            border-color: #f0f0f0;
+        }
+        #barcamppage .navbar-barcamp .navbar-nav > li.active > a {
+            background: #555555;
+            color: #eeeeee;
+        }
+        #barcamppage .navbar-barcamp .navbar-nav > li:hover > a {
+            background: #f8f8f8;
+        }
+    </style>
+
+    
+    </head>
+
+    <body data-i18n-areyousure="Are you sure?" 
+        id="barcamppage"
+        data-lang="en" class="">
+        
+        <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">Camper</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                            <li><a href="/">Home</a></li>
+                        
+                        
+                        <li><a href="/past">Past Barcamps</a></li>
+                        <li><a target="blog" href="http://blog.barcamptools.eu">Blog</a></li>
+                        <li><a target="feedback" href="mailto:info@barcamptools.eu">Ideas / Feedback</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right"> 
+                            <li class="divider-vertical"></li>
+                        
+                            <li><a href="https://barcamptools.eu/pycamp201804/events/05521a5d-3f4c-4a19-81a9-1f4bc6aa5985?__l=de">deutsch</a></li>
+                        
+                        
+                        
+                            <li class="divider-vertical"></li>
+                            <li><a href="/users/login">Login</a></li>
+                            <li><a href="/users/register">Register</a></li>
+                        
+                    </ul>
+                </div>
+            </div><!-- container fluid -->
+        </nav><!-- navbar -->
+
+        
+
+
+        
+    <div class="bcdetail-bg" id="bc-header" role="banner">
+        <div class="container">
+            <div class="header action-container content-area">
+                
+                    <a title="PythonCamp Cologne" href="https://barcamptools.eu/pycamp201804/"><img alt="Logo PythonCamp Cologne" class="img-responsive" src="https://barcamptools.eu/assets/fff93556-8eae-446e-b52f-d50de0a17579" width="1140" height="218"></a>
+                
+            </div>
+            <div class="byline clearfix">
+                <div class="location">
+                    <i class="fa fa-location-arrow"></i> <a href="#" 
+                        class="open-location-modal"
+                        title = "Open map in modal"
+                        data-accesstoken = "pk.eyJ1IjoibXJ0b3BmIiwiYSI6IkZrS25UV0UifQ.kColsXmD6gltDh8UpgQaxg"
+                        data-lat = "50.9252933" 
+                        data-lng = "6.9937135"
+                        data-title = "GFU Cyrus AG">
+                            <strong>GFU Cyrus AG</strong>
+                    </a>, 
+                    Am Grauen Stein 27, 
+                    51105 Köln
+                </div>
+                <div class="date">
+                    <i class="fa fa-calendar"></i> Apr 7, 2018 - Apr 8, 2018
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+        
+        
+    <div class="modal fade" id="location-modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="location-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="locationmap" id="location-map" style="height: 400px; width: 100%;">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+    <div class="container-fluid bccontainer" id="barcamp-header">
+        <div id="barcamp-menu">
+            <nav class="navbar navbar-barcamp">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-barcamp" aria-expanded="false" aria-controls="navbar">
+                            Open menu
+                        </button>
+                    </div>
+                    <div id="navbar-barcamp" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            
+                                <li class=""><a href="/pycamp201804/">Home</a></li>
+                            
+                                <li class=""><a href="/pycamp201804/sessions">session proposals</a></li>
+                            
+                                <li class="active"><a href="/pycamp201804/events">events</a></li>
+                            
+                                <li class=""><a href="/pycamp201804/sponsoren">Sponsoren</a></li>
+                            
+                                <li class=""><a href="/pycamp201804/organisation">Organisation</a></li>
+                            
+                                <li class=""><a href="/pycamp201804/coc">Code Of Conduct</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    
+        
+    
+
+    <div class="container-fluid bccontainer" id="barcamp-content">
+
+        
+        
+
+        
+            
+        
+
+        
+        
+
+        
+    <ol class="breadcrumb">
+        <li><a href="/pycamp201804/">Homepage</a></li>
+        <li><a href="/pycamp201804/events?at=timetable">Events</a></li>
+        <li class="active">PythonCamp Sonntag</li>
+    </ol>
+
+    <h2>PythonCamp Sonntag</h2>
+    <div class="description"><h2 id="pythoncamp-cologne">PythonCamp Cologne</h2>
+<h3 id="02042016-03042016">07.04.2017 - 08.04.2017</h3>
+<h4 id="kostenlose-teilnahme-anmeldung-erforderlich-noch-nicht-eroffnet">Kostenlose Teilnahme</h4>
+<p>Die Python User Group K&ouml;ln (<a href="http://www.pycologne.de" rel="nofollow">pyCologne</a>), die GFU Cyrus AG und der&nbsp;<a href="http://pysv.de" rel="nofollow">Python Software Verband e.V.</a>&nbsp;laden zum&nbsp;neunten deutschen&nbsp;<strong>Python-<a href="http://de.wikipedia.org/wiki/Barcamp" rel="nofollow">BarCamp</a></strong>&nbsp;in den R&auml;umen der&nbsp;<a href="http://www.gfu.net" rel="nofollow">GFU Cyrus AG</a>&nbsp;in K&ouml;ln ein!</p>
+<p>Die zweit&auml;gige Veranstaltung richtet sich an alle, die sich f&uuml;r die Programmiersprache&nbsp;<a href="http://www.Python.org" rel="nofollow">Python</a>&nbsp;und deren Einsatz interessieren - sei es im Bereich Web Development, Automatisierung, Scientific Computing oder einfach nur zum Spa&szlig;. Die Themen des PythonCamps sind so vielf&auml;ltig wie die Einsatzm&ouml;glichkeiten von Python selbst, denn&nbsp;<strong>das Programm wird - wie bei einem BarCamp &uuml;blich - von den Teilnehmern selbst gestaltet</strong>.</p>
+<p>Ebenso &uuml;blich sind bei dieser "Un-Konferenz" eine&nbsp;<strong>kostenlose Teilnahme</strong>&nbsp;(<strong><a href="https://barcamptools.eu/pycamp201804/lists" rel="nofollow">Anmeldung erforderlich!</a></strong>) und Verpflegung, so dass hier Berufst&auml;tige, Studenten und auch Sch&uuml;ler aus den verschiedensten T&auml;tigkeitsfeldern, Branchen und Organisationen aufeinander treffen und sich gegenseitig bereichern. Die kostenlose Teilnahme wird durch Sponsoren erm&ouml;glicht, die die Veranstaltung finanziell unterst&uuml;tzen.</p>
+<p>Du willst immer auf dem Laufenden bleiben? Dann folge uns auf&nbsp;<a href="https://twitter.com/pythoncamp" rel="nofollow">Twitter</a>&nbsp;oder&nbsp;<a href="https://www.facebook.com/PythonCamp" rel="nofollow">Facebook</a>. Oder tweete selbst mit dem Hash-Tag #pythoncamp !</p></div>
+
+    <div id="user-events-content">
+
+        <div role="tabpanel" id="eventlist" data-url="/pycamp201804/registrationdata">
+            
+    
+    
+
+    
+    
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                
+                <li role="presentation" class="active"><a href="#userlist" aria-controls="userlist" role="tab" data-toggle="tab">
+                    Participants</a>
+                </li>
+                
+                <li role="presentation" class=""><a href="#sessions" aria-controls="sessions" role="tab" data-toggle="tab">
+                    Timetable</a>
+                </li>
+                <li role="presentation" class=""><a href="#location" aria-controls="location" id="location-button" role="tab" data-toggle="tab">
+                    Location</a>
+                </li>
+
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+
+                <!-- userlist /participants -->
+                
+                <div role="tabpanel" class="tab-pane active" id="userlist">
+                    
+                    <section id="participants">
+                        <h4>Participants</h4>
+                        
+    <ul class="participants">
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/michael_python" data-toggle="tooltip" title="Michael">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/michael_python" title="Michael">
+                Michael
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/hensing" data-toggle="tooltip" title="Henning Dickten">
+                <img alt="Henning Dickten" class="profile-image-userlist" src="/assets/f670b089-5676-4a64-b381-b9a89294781e">
+            </a>
+            <a class="sr-only participant-name" href="/u/hensing" title="Henning Dickten">
+                Henning Dickten
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/christoph_borgolte" data-toggle="tooltip" title="Christoph Borgolte">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/christoph_borgolte" title="Christoph Borgolte">
+                Christoph Borgolte
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/rbreu" data-toggle="tooltip" title="Rebecca Breu">
+                <img alt="Rebecca Breu" class="profile-image-userlist" src="/assets/ed930d24-d5be-449f-a6b8-0e15a0509471">
+            </a>
+            <a class="sr-only participant-name" href="/u/rbreu" title="Rebecca Breu">
+                Rebecca Breu
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/tomy_koch" data-toggle="tooltip" title="Thomas Koch">
+                <img alt="Thomas Koch" class="profile-image-userlist" src="/assets/65308d05-28cc-4b59-9d97-cf625530b3d0">
+            </a>
+            <a class="sr-only participant-name" href="/u/tomy_koch" title="Thomas Koch">
+                Thomas Koch
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/reimarbauer" data-toggle="tooltip" title="Reimar Bauer">
+                <img alt="Reimar Bauer" class="profile-image-userlist" src="/assets/97217d93-a0a6-4236-a90a-1de09d0c73cb">
+            </a>
+            <a class="sr-only participant-name" href="/u/reimarbauer" title="Reimar Bauer">
+                Reimar Bauer
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/tfabula" data-toggle="tooltip" title="Thomas Fabula">
+                <img alt="Thomas Fabula" class="profile-image-userlist" src="/assets/976f279e-1087-4ccb-9a55-7bc6a898a2d1">
+            </a>
+            <a class="sr-only participant-name" href="/u/tfabula" title="Thomas Fabula">
+                Thomas Fabula
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/obestwalter" data-toggle="tooltip" title="Oliver Bestwalter">
+                <img alt="Oliver Bestwalter" class="profile-image-userlist" src="/assets/3d0d6884-9775-4209-ada0-01eda87a6ddb">
+            </a>
+            <a class="sr-only participant-name" href="/u/obestwalter" title="Oliver Bestwalter">
+                Oliver Bestwalter
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/stefan_holstein" data-toggle="tooltip" title="Stefan Holstein">
+                <img alt="Stefan Holstein" class="profile-image-userlist" src="/assets/1a72a7dd-51a1-42bd-912e-1887352615b9">
+            </a>
+            <a class="sr-only participant-name" href="/u/stefan_holstein" title="Stefan Holstein">
+                Stefan Holstein
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/klaus" data-toggle="tooltip" title="Klaus Bremer">
+                <img alt="Klaus Bremer" class="profile-image-userlist" src="/assets/8d10d68c-2a94-4ec4-8a00-e6a83cc74959">
+            </a>
+            <a class="sr-only participant-name" href="/u/klaus" title="Klaus Bremer">
+                Klaus Bremer
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/gerrit_ansmann" data-toggle="tooltip" title="Gerrit Ansmann">
+                <img alt="Gerrit Ansmann" class="profile-image-userlist" src="/assets/10d26268-9a4e-4d8b-ab4e-dee78a337bd4">
+            </a>
+            <a class="sr-only participant-name" href="/u/gerrit_ansmann" title="Gerrit Ansmann">
+                Gerrit Ansmann
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/sascha_zantis" data-toggle="tooltip" title="Sascha Zantis">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/sascha_zantis" title="Sascha Zantis">
+                Sascha Zantis
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/lin_ting" data-toggle="tooltip" title="Lin Ting">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/lin_ting" title="Lin Ting">
+                Lin Ting
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/acsr" data-toggle="tooltip" title="Armin Stross-Radschinski">
+                <img alt="Armin Stross-Radschinski" class="profile-image-userlist" src="/assets/f52b71a4-2e63-4af8-b354-521af71e2cb0">
+            </a>
+            <a class="sr-only participant-name" href="/u/acsr" title="Armin Stross-Radschinski">
+                Armin Stross-Radschinski
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/frederik_hasecke_1" data-toggle="tooltip" title="Frederik Hasecke">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/frederik_hasecke_1" title="Frederik Hasecke">
+                Frederik Hasecke
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/stefan" data-toggle="tooltip" title="Stefan Erbschwendner">
+                <img alt="Stefan Erbschwendner" class="profile-image-userlist" src="/assets/57d15136-6434-4c97-9bf4-ebdd83f1fa4c">
+            </a>
+            <a class="sr-only participant-name" href="/u/stefan" title="Stefan Erbschwendner">
+                Stefan Erbschwendner
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/daniel_hepper" data-toggle="tooltip" title="Daniel Hepper">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/daniel_hepper" title="Daniel Hepper">
+                Daniel Hepper
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/mmueller" data-toggle="tooltip" title="Mike Müller">
+                <img alt="Mike Müller" class="profile-image-userlist" src="/assets/ba1e295f-6dd5-473b-8c24-6b42d7f32ce2">
+            </a>
+            <a class="sr-only participant-name" href="/u/mmueller" title="Mike Müller">
+                Mike Müller
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/dominik_geldmacher" data-toggle="tooltip" title="Dominik Geldmacher">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/dominik_geldmacher" title="Dominik Geldmacher">
+                Dominik Geldmacher
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/christian_geier" data-toggle="tooltip" title="Christian Geier">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/christian_geier" title="Christian Geier">
+                Christian Geier
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/olha_molodozhenia" data-toggle="tooltip" title="Olha Molodozhenia">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/olha_molodozhenia" title="Olha Molodozhenia">
+                Olha Molodozhenia
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/daniel_szoska" data-toggle="tooltip" title="Daniel Szoska">
+                <img alt="Daniel Szoska" class="profile-image-userlist" src="/assets/fb4eba6b-19f1-4368-8470-b35479112adc">
+            </a>
+            <a class="sr-only participant-name" href="/u/daniel_szoska" title="Daniel Szoska">
+                Daniel Szoska
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/andialbrecht" data-toggle="tooltip" title="Andi Albrecht">
+                <img alt="Andi Albrecht" class="profile-image-userlist" src="/assets/5ebaa453-0b75-4408-9c9f-44c9d9b52822">
+            </a>
+            <a class="sr-only participant-name" href="/u/andialbrecht" title="Andi Albrecht">
+                Andi Albrecht
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/patrick_smandzich" data-toggle="tooltip" title="Patrick Smandzich">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/patrick_smandzich" title="Patrick Smandzich">
+                Patrick Smandzich
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/sschwarzer" data-toggle="tooltip" title="Stefan Schwarzer">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/sschwarzer" title="Stefan Schwarzer">
+                Stefan Schwarzer
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/mchristen" data-toggle="tooltip" title="Martin Christen">
+                <img alt="Martin Christen" class="profile-image-userlist" src="/assets/0ce812d0-2143-4f8a-bf9b-0142c668f7ad">
+            </a>
+            <a class="sr-only participant-name" href="/u/mchristen" title="Martin Christen">
+                Martin Christen
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/hemmerling" data-toggle="tooltip" title="Rolf Hemmerling">
+                <img alt="Rolf Hemmerling" class="profile-image-userlist" src="/assets/a1967466-6d73-4ab3-a9fa-3ee92204b0b5">
+            </a>
+            <a class="sr-only participant-name" href="/u/hemmerling" title="Rolf Hemmerling">
+                Rolf Hemmerling
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/martin_borus" data-toggle="tooltip" title="Martin Borus">
+                <img alt="Martin Borus" class="profile-image-userlist" src="/assets/8393d575-d7fb-4581-98b1-c59651a2edd7">
+            </a>
+            <a class="sr-only participant-name" href="/u/martin_borus" title="Martin Borus">
+                Martin Borus
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/daniel_fett" data-toggle="tooltip" title="Daniel Fett">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/daniel_fett" title="Daniel Fett">
+                Daniel Fett
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/guido_schmitz" data-toggle="tooltip" title="Guido Schmitz">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/guido_schmitz" title="Guido Schmitz">
+                Guido Schmitz
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/nico_maas" data-toggle="tooltip" title="Nico Maas">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/nico_maas" title="Nico Maas">
+                Nico Maas
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/mrtopf" data-toggle="tooltip" title="Christian Scholz">
+                <img alt="Christian Scholz" class="profile-image-userlist" src="/assets/e6336cc7-cf08-434d-b5c6-513933722fac">
+            </a>
+            <a class="sr-only participant-name" href="/u/mrtopf" title="Christian Scholz">
+                Christian Scholz
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/droid%20boy" data-toggle="tooltip" title="Thomas Riedel">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/droid%20boy" title="Thomas Riedel">
+                Thomas Riedel
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/czamb" data-toggle="tooltip" title="Claudio Z">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/czamb" title="Claudio Z">
+                Claudio Z
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/max_luedov" data-toggle="tooltip" title="Max Lüdov">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/max_luedov" title="Max Lüdov">
+                Max Lüdov
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/georgi_biserin" data-toggle="tooltip" title="Georgi Biserin">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/georgi_biserin" title="Georgi Biserin">
+                Georgi Biserin
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/mario_beckel" data-toggle="tooltip" title="Mario Beckel">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/mario_beckel" title="Mario Beckel">
+                Mario Beckel
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/dirk_loeffelbein" data-toggle="tooltip" title="Dirk Löffelbein">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/dirk_loeffelbein" title="Dirk Löffelbein">
+                Dirk Löffelbein
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/lukas_gilz" data-toggle="tooltip" title="Lukas Gilz">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/lukas_gilz" title="Lukas Gilz">
+                Lukas Gilz
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/jochen_wersdoerfer" data-toggle="tooltip" title="Jochen Wersdörfer">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/jochen_wersdoerfer" title="Jochen Wersdörfer">
+                Jochen Wersdörfer
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/steffen_oschatz" data-toggle="tooltip" title="Steffen Oschatz">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/steffen_oschatz" title="Steffen Oschatz">
+                Steffen Oschatz
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/jeremy_perez" data-toggle="tooltip" title="Jeremy Perez">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/jeremy_perez" title="Jeremy Perez">
+                Jeremy Perez
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/tobias_siebenlist" data-toggle="tooltip" title="Tobias Siebenlist">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/tobias_siebenlist" title="Tobias Siebenlist">
+                Tobias Siebenlist
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/oliver_bengs" data-toggle="tooltip" title="Oliver Bengs">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/oliver_bengs" title="Oliver Bengs">
+                Oliver Bengs
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/julien_dedek_1" data-toggle="tooltip" title="Julien Dedek">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/julien_dedek_1" title="Julien Dedek">
+                Julien Dedek
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/till_maas" data-toggle="tooltip" title="Till Maas">
+                <img alt="Till Maas" class="profile-image-userlist" src="/assets/31284490-8cc7-4905-aab8-ebd3e787a46f">
+            </a>
+            <a class="sr-only participant-name" href="/u/till_maas" title="Till Maas">
+                Till Maas
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/thomas_fischer" data-toggle="tooltip" title="Thomas Fischer">
+                <img alt="Thomas Fischer" class="profile-image-userlist" src="/assets/74d2e606-0580-4b62-a8d8-d965e7654b50">
+            </a>
+            <a class="sr-only participant-name" href="/u/thomas_fischer" title="Thomas Fischer">
+                Thomas Fischer
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/sven" data-toggle="tooltip" title="Sven Wontroba">
+                <img alt="Sven Wontroba" class="profile-image-userlist" src="/assets/7e945a00-3c64-4944-8111-5a83cc39fabc">
+            </a>
+            <a class="sr-only participant-name" href="/u/sven" title="Sven Wontroba">
+                Sven Wontroba
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/ecommobil" data-toggle="tooltip" title="C. Esther Enriquez">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/ecommobil" title="C. Esther Enriquez">
+                C. Esther Enriquez
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/adroullier" data-toggle="tooltip" title="Arndt Droullier">
+                <img alt="Arndt Droullier" class="profile-image-userlist" src="/assets/723ca8c9-758c-43da-b17e-fcc31e40c807">
+            </a>
+            <a class="sr-only participant-name" href="/u/adroullier" title="Arndt Droullier">
+                Arndt Droullier
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/ulif" data-toggle="tooltip" title="Uli Fouquet">
+                <img alt="Uli Fouquet" class="profile-image-userlist" src="/assets/4240c438-2c98-4af4-bc9e-5328fb154727">
+            </a>
+            <a class="sr-only participant-name" href="/u/ulif" title="Uli Fouquet">
+                Uli Fouquet
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/userzimmermann" data-toggle="tooltip" title="Stefan Zimmermann">
+                <img alt="Stefan Zimmermann" class="profile-image-userlist" src="/assets/00295796-cce7-4f52-b709-98c84180f6af">
+            </a>
+            <a class="sr-only participant-name" href="/u/userzimmermann" title="Stefan Zimmermann">
+                Stefan Zimmermann
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/goekan_kuecuek" data-toggle="tooltip" title="Gökan Küçük ">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/goekan_kuecuek" title="Gökan Küçük ">
+                Gökan Küçük 
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/knolldaniela" data-toggle="tooltip" title="Daniela Knoll">
+                <img alt="Daniela Knoll" class="profile-image-userlist" src="/assets/1618e9bf-6733-4887-9a9d-06bbe77884a5">
+            </a>
+            <a class="sr-only participant-name" href="/u/knolldaniela" title="Daniela Knoll">
+                Daniela Knoll
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/vladimir_kolev" data-toggle="tooltip" title="Vladimir Kolev">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/vladimir_kolev" title="Vladimir Kolev">
+                Vladimir Kolev
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/dzheyhan_ahmedov" data-toggle="tooltip" title="Dzheyhan Ahmedov">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/dzheyhan_ahmedov" title="Dzheyhan Ahmedov">
+                Dzheyhan Ahmedov
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/lars_lengersdorf" data-toggle="tooltip" title="Lars Lengersdorf">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/lars_lengersdorf" title="Lars Lengersdorf">
+                Lars Lengersdorf
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/tim_schoos" data-toggle="tooltip" title="Tim Schoos">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/tim_schoos" title="Tim Schoos">
+                Tim Schoos
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/mateen_rajput" data-toggle="tooltip" title="Mateen Rajput">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/mateen_rajput" title="Mateen Rajput">
+                Mateen Rajput
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/beatriz_nery_rodrigues_chagas" data-toggle="tooltip" title="Beatriz Nery Rodrigues Chagas">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/beatriz_nery_rodrigues_chagas" title="Beatriz Nery Rodrigues Chagas">
+                Beatriz Nery Rodrigues Chagas
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/dinu" data-toggle="tooltip" title="Dinu Gherman">
+                <img alt="Dinu Gherman" class="profile-image-userlist" src="/assets/98294a4a-1a73-4da0-9939-3ba95179c7da">
+            </a>
+            <a class="sr-only participant-name" href="/u/dinu" title="Dinu Gherman">
+                Dinu Gherman
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/enrico_leutsch" data-toggle="tooltip" title="Enrico Leutsch">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/enrico_leutsch" title="Enrico Leutsch">
+                Enrico Leutsch
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/demarc" data-toggle="tooltip" title="Marc Gehling">
+                <img alt="Marc Gehling" class="profile-image-userlist" src="/assets/305b8cef-f565-456b-86a7-ddff9921b957">
+            </a>
+            <a class="sr-only participant-name" href="/u/demarc" title="Marc Gehling">
+                Marc Gehling
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/felicia_burtscher" data-toggle="tooltip" title="Felicia Burtscher">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/felicia_burtscher" title="Felicia Burtscher">
+                Felicia Burtscher
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/sagar_hukkire" data-toggle="tooltip" title="SAGAR HUKKIRE">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/sagar_hukkire" title="SAGAR HUKKIRE">
+                SAGAR HUKKIRE
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/andrei_meleschkin" data-toggle="tooltip" title="Andrei Meleschkin">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/andrei_meleschkin" title="Andrei Meleschkin">
+                Andrei Meleschkin
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/jens_niehoff" data-toggle="tooltip" title="Jens Niehoff">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/jens_niehoff" title="Jens Niehoff">
+                Jens Niehoff
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/felix_schumacher" data-toggle="tooltip" title="Felix Schumacher">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/felix_schumacher" title="Felix Schumacher">
+                Felix Schumacher
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/markus_joachim_steinke" data-toggle="tooltip" title="Markus Joachim Steinke">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/markus_joachim_steinke" title="Markus Joachim Steinke">
+                Markus Joachim Steinke
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/andreas_herrmann" data-toggle="tooltip" title="Andreas Herrmann">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/andreas_herrmann" title="Andreas Herrmann">
+                Andreas Herrmann
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/frank_hennige" data-toggle="tooltip" title="Frank Hennige">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/frank_hennige" title="Frank Hennige">
+                Frank Hennige
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/sebastian_szeracki" data-toggle="tooltip" title="Sebastian Szeracki">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/sebastian_szeracki" title="Sebastian Szeracki">
+                Sebastian Szeracki
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/sagar_hukkire" data-toggle="tooltip" title="SAGAR HUKKIRE">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/sagar_hukkire" title="SAGAR HUKKIRE">
+                SAGAR HUKKIRE
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/alexander_lazarevic" data-toggle="tooltip" title="Alexander Lazarević">
+                <img alt="Alexander Lazarević" class="profile-image-userlist" src="/assets/f17bd168-6444-4e05-b886-826d0ac4a336">
+            </a>
+            <a class="sr-only participant-name" href="/u/alexander_lazarevic" title="Alexander Lazarević">
+                Alexander Lazarević
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/albrecht_muehlenschulte" data-toggle="tooltip" title="Albrecht Mühlenschulte">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/albrecht_muehlenschulte" title="Albrecht Mühlenschulte">
+                Albrecht Mühlenschulte
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/julia_kannenberg" data-toggle="tooltip" title="Julia Kannenberg">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/julia_kannenberg" title="Julia Kannenberg">
+                Julia Kannenberg
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/ralf_steckel" data-toggle="tooltip" title="Ralf Steckel">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/ralf_steckel" title="Ralf Steckel">
+                Ralf Steckel
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/suryansh_tibarewala" data-toggle="tooltip" title="Suryansh Tibarewala">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/suryansh_tibarewala" title="Suryansh Tibarewala">
+                Suryansh Tibarewala
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/ina_bankova" data-toggle="tooltip" title="Ina Bankova">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/ina_bankova" title="Ina Bankova">
+                Ina Bankova
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/tatiana_vasilevskaya" data-toggle="tooltip" title="Tatiana Vasilevskaya">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/tatiana_vasilevskaya" title="Tatiana Vasilevskaya">
+                Tatiana Vasilevskaya
+            </a>
+        </li>
+    
+    </ul>
+
+                    </section>
+                    <section id="maybe">
+                        <h4>Maybe</h4>
+                        
+    <ul class="participants">
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/spotlightkid" data-toggle="tooltip" title="Christopher Arndt">
+                <img alt="Christopher Arndt" class="profile-image-userlist" src="/assets/4b150a23-52d9-4329-ba01-70baef62cccb">
+            </a>
+            <a class="sr-only participant-name" href="/u/spotlightkid" title="Christopher Arndt">
+                Christopher Arndt
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/stephan.schwichtenberg%40pi-lar.net" data-toggle="tooltip" title="Stephan Schwichtenberg">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/stephan.schwichtenberg%40pi-lar.net" title="Stephan Schwichtenberg">
+                Stephan Schwichtenberg
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/timo_stollenwerk" data-toggle="tooltip" title="Timo Stollenwerk">
+                <img alt="Timo Stollenwerk" class="profile-image-userlist" src="/assets/1797a7c5-31b0-4eca-83d3-595158d7775d">
+            </a>
+            <a class="sr-only participant-name" href="/u/timo_stollenwerk" title="Timo Stollenwerk">
+                Timo Stollenwerk
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/robin_aufenanger" data-toggle="tooltip" title="Robin Aufenanger">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/robin_aufenanger" title="Robin Aufenanger">
+                Robin Aufenanger
+            </a>
+        </li>
+    
+    </ul>
+
+                    </section>
+                    <section id="waitinglist">
+                        <h4>Waiting list</h4>
+                        
+    <ul class="participants">
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/maja_ilic" data-toggle="tooltip" title="Maja Ilic">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/maja_ilic" title="Maja Ilic">
+                Maja Ilic
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/sebastian_rode" data-toggle="tooltip" title="Sebastian Rode">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/sebastian_rode" title="Sebastian Rode">
+                Sebastian Rode
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/rainer_lietz" data-toggle="tooltip" title="Rainer Lietz">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/rainer_lietz" title="Rainer Lietz">
+                Rainer Lietz
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/klauswarzecha" data-toggle="tooltip" title="Klaus-Dieter Warzecha">
+                <img alt="Klaus-Dieter Warzecha" class="profile-image-userlist" src="/assets/1878ad30-b9cf-413c-985e-d3865fcb64c9">
+            </a>
+            <a class="sr-only participant-name" href="/u/klauswarzecha" title="Klaus-Dieter Warzecha">
+                Klaus-Dieter Warzecha
+            </a>
+        </li>
+    
+        <li class="participant">
+            <a class="participant-avatar" href="/u/georg_haviar" data-toggle="tooltip" title="Georg Haviar">
+                <div class="profile-image-userlist missing"><i class="fa fa-user"></i></div>
+            </a>
+            <a class="sr-only participant-name" href="/u/georg_haviar" title="Georg Haviar">
+                Georg Haviar
+            </a>
+        </li>
+    
+    </ul>
+
+                    </section>
+                    
+                </div>
+                
+
+                <!-- session / timetable -->
+                <div role="tabpanel" class="tab-pane " id="sessions">
+
+
+                    <h3 class="sr-only">Time Table</h3>
+                    <div class="sessiontable sessiontable-cols-8">
+                        
+                        <div class="room empty cell" aria-hidden="true">
+                            <!-- timeslot -->
+                        </div>
+                        
+                        <div class="room cell" aria-hidden="true">
+                            <h3>Plenum</h3>
+                            <small>Veranstaltungsteile für alle Teilnehmer, Pausen, Essen usw.</small><br>
+                            <small>75 persons</small>
+                        </div>
+                        
+                        <div class="room cell" aria-hidden="true">
+                            <h3>Raum 1</h3>
+                            <small></small><br>
+                            <small>10 persons</small>
+                        </div>
+                        
+                        <div class="room cell" aria-hidden="true">
+                            <h3>Raum 4</h3>
+                            <small></small><br>
+                            <small>10 persons</small>
+                        </div>
+                        
+                        <div class="room cell" aria-hidden="true">
+                            <h3>Raum 10</h3>
+                            <small></small><br>
+                            <small>10 persons</small>
+                        </div>
+                        
+                        <div class="room cell" aria-hidden="true">
+                            <h3>Raum 6</h3>
+                            <small></small><br>
+                            <small>10 persons</small>
+                        </div>
+                        
+                        <div class="room cell" aria-hidden="true">
+                            <h3>Raum 7</h3>
+                            <small></small><br>
+                            <small>10 persons</small>
+                        </div>
+                        
+                        <div class="room cell" aria-hidden="true">
+                            <h3>Raum 5</h3>
+                            <small></small><br>
+                            <small>10 persons</small>
+                        </div>
+                        
+                        
+                            <div class="timeslot cell">
+                                <h3>08:00</h3>
+                            </div>
+
+                            
+                                
+                                    
+                                    
+                                    <div class="sessionslot active cell ">
+                                        <div class="session-contents">
+                                            
+                                            
+                                                <a title="Documentation for Aufbau" 
+                                                   href="/pycamp201804/events/05521a5d-3f4c-4a19-81a9-1f4bc6aa5985/aufbau">
+                                                <h5>Aufbau</h5>
+                                                <div class="description">PythonCamp OrgaTeam und Helfer</div>
+                                                <div class="moderators"></div>
+                                                <div class="room-description">Room: Plenum</div>
+                                            </a>
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                            
+                        
+                            <div class="timeslot cell">
+                                <h3>09:00</h3>
+                            </div>
+
+                            
+                                
+                                    
+                                    
+                                    <div class="sessionslot active cell ">
+                                        <div class="session-contents">
+                                            
+                                            
+                                                <a title="Documentation for Ankommen" 
+                                                   href="/pycamp201804/events/05521a5d-3f4c-4a19-81a9-1f4bc6aa5985/ankommen">
+                                                <h5>Ankommen</h5>
+                                                <div class="description">Alle 
+</div>
+                                                <div class="moderators"></div>
+                                                <div class="room-description">Room: Plenum</div>
+                                            </a>
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                            
+                        
+                            <div class="timeslot cell">
+                                <h3>10:00</h3>
+                            </div>
+
+                            
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                            
+                        
+                            <div class="timeslot cell">
+                                <h3>10:45</h3>
+                            </div>
+
+                            
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                            
+                        
+                            <div class="timeslot cell">
+                                <h3>11:45</h3>
+                            </div>
+
+                            
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                            
+                        
+                            <div class="timeslot cell">
+                                <h3>12:45</h3>
+                            </div>
+
+                            
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                            
+                        
+                            <div class="timeslot cell">
+                                <h3>13:30</h3>
+                            </div>
+
+                            
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                            
+                        
+                            <div class="timeslot cell">
+                                <h3>14:30</h3>
+                            </div>
+
+                            
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                            
+                        
+                            <div class="timeslot cell">
+                                <h3>15:30</h3>
+                            </div>
+
+                            
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                            
+                        
+                            <div class="timeslot cell">
+                                <h3>16:00</h3>
+                            </div>
+
+                            
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                                    
+                                    
+                                    <div class="sessionslot  cell ">
+                                        <div class="session-contents">
+                                            
+                                        </div>
+                                    </div>
+                                
+                            
+                        
+                    </div>
+
+                    <div class="sessiontable-actions">
+                        
+                                  
+                    </div>
+
+                </div>
+                <div role="tabpanel" class="tab-pane " id="location">
+                    <h3 class="sr-only">Location</h3>
+                    <div class="event-location-map" id="event-location-map"
+                        data-accesstoken = "pk.eyJ1IjoibXJ0b3BmIiwiYSI6IkZrS25UV0UifQ.kColsXmD6gltDh8UpgQaxg"
+                        data-title = "GFU Cyrus AG"
+                        data-description = "Am Grauen Stein 27, 51105 Köln"
+                        data-lat = "50.9252933" 
+                        data-lng = "6.9937135"
+                    >
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+ 
+
+        
+        <footer role="contentinfo">
+            <div class="container-fluid">
+                <a href="/impressum.html">Impressum</a>
+            </div>
+        </footer>
+        
+    </div> 
+ 
+
+        <script type="text/javascript" src="/static/js/fileuploader.js"></script>
+        <script type="text/javascript" src="/static/js/public_components.min.js"></script>
+        <script type="text/javascript" src="/static/js/public.js"></script>
+        <script type="text/javascript" src="/static/js/ouical.js"></script>
+
+        
+            <script src="/static/js/parsley-en.js"></script>
+        
+        
+        <script>
+            $(document).ready( function () {
+                $('.popinfo').popover();
+                $('.ttip').tooltip();
+                $(".btn-toggle").click( function () {
+                    $(this).button("toggle");
+                    var f = $(this).attr("for");
+                    if ($(this).hasClass("active")) {
+                        $(this).find(".icon").addClass("icon-ok");
+                        $("#"+f).attr("value", "1");
+                    } else {
+                        $(this).find(".icon").removeClass("icon-ok");
+                        $("#"+f).attr("value", "0");
+                    }
+                    var form = $(this).parents("form.live");
+                    $(this).parents("form.live").submit();
+                    return false;
+                });
+            });
+        </script>
+
+        
+    <script>
+    var myCalendar = createCalendar({
+  options: {
+    title: "Add to Calendar",
+    class: 'my-class',
+
+    // You can pass an ID. If you don't, one will be generated for you
+    id: 'my-id'
+  },
+  data: {
+    // Event title
+    title: 'PythonCamp Cologne',
+
+    // Event start date
+    start: new Date("2018-04-07"),
+    end: new Date("2018-04-08"),
+
+    // Event Address
+    address: 'GFU Cyrus AG, Am Grauen Stein 27, 51105 Köln',
+
+
+    // Event Description
+    description: 'PythonCamp Cologne 07.04.2018, 9 Uhr - 08.04.2018, nachmittags Kostenlose Teilnahme Die Python User Group Köln (pyCologne), die GFU Cyrus AG und der Python Software Verband e.V. laden zum neunten deutschen Python-BarCamp in den Räumen der GFU Cyrus AG in Köln ein! Die zweitägige Veranstaltung richtet sich an alle, die sich für die Programmiersprache Python und deren Einsatz interessieren - sei es im Bereich Web Development, Automatisierung, Scientific Computing oder einfach nur zum Spaß. Die Themen des PythonCamps sind so vielfältig wie die Einsatzmöglichkeiten von Python selbst, denn das Programm wird - wie bei einem BarCamp üblich - von den Teilnehmern selbst gestaltet. Ebenso üblich sind bei dieser &#34;Un-Konferenz&#34; eine kostenlose Teilnahme (Anmeldung erforderlich!) und Verpflegung, so dass hier Berufstätige, Studenten und auch Schüler aus den verschiedensten Tätigkeitsfeldern, Branchen und Organisationen aufeinander treffen und sich gegenseitig bereichern. Die kostenlose Teilnahme wird durch Sponsoren ermöglicht, die die Veranstaltung finanziell unterstützen. Du willst immer auf dem Laufenden bleiben? Dann folge uns auf Twitter oder Facebook. Oder tweete selbst mit dem Hash-Tag #pythoncamp ! Zeitplan Zur Ansicht des Zeitplans für Samstag und Sonntag bitte den Reiter &#34;Veranstaltungen&#34; auswählen und dann den &#34;Zeitraster&#34;-Knopf unterhalb der jeweiligen Veranstaltung klicken.'
+  }
+});
+
+if (document.querySelector('#add-to-calendar-container')) {
+    document.querySelector('#add-to-calendar-container').appendChild(myCalendar);
+}
+
+    </script>
+    
+    
+
+        
+        
+
+
+        <script type="text/javascript" src="/static/js/twitter.js"></script>
+        <script>
+            $(document).ready(function() {
+                $(".confirm").click( function() {
+                    return confirm($("body").data("i18n-areyousure"));
+                });
+                $('[data-toggle="tooltip"]').tooltip()
+            });
+        </script>
+    </body>
+</html>
