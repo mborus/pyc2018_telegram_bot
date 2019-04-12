@@ -42,11 +42,11 @@ pyc = quick_parse_sessions.PyCamp()
 def start(bot, update):
     """Send a message when the command /start is issued."""
     update.message.reply_text("""Hallo. Ich bin dein PythonCamp Bot.
-    
+
 Ich kann Dir Fragen nach der Zeit und den Räumen beantworten.
-    
+
 Tippe 'zeit' oder 'raum'.
-    
+
 """)
 
 
@@ -59,13 +59,12 @@ def echo(bot, update):
     """Echo the user message."""
     logger.debug(update.message.text)
 
-    if 'time' in update.message.text.lower():
+    message = update.message.text.lower()
+
+    if message.startswith('t') or message.startswith('z') or \
+            'time' in message or 'zeit' in message:
         return start_times(bot, update)
-    if 'zeit' in update.message.text.lower():
-        return start_times(bot, update)
-    if 'room' in update.message.text.lower():
-        return room(bot, update)
-    if 'raum' in update.message.text.lower():
+    if message.startswith('r') or 'room' in message or 'raum' in message:
         return room(bot, update)
 
     update.message.reply_text('{}? Das habe ich nicht verstanden...'.format(update.message.text))
