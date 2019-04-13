@@ -11,6 +11,12 @@ Usage:
 Basic Echobot example, repeats messages.
 Press Ctrl-C on the command line or send a signal to the process to stop the
 bot.
+
+raum - Liste der Räume
+zeit - Startzeiten
+jetzt - aktuelle Sessions
+gleich - kommende Sessions
+
 """
 import time
 import os
@@ -22,18 +28,26 @@ import quick_parse_sessions
 
 TOKEN_TELEGRAM = "insert api token here"
 
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
+from telegram.ext import (
+    Updater,
+    CommandHandler,
+    MessageHandler,
+    Filters,
+    CallbackQueryHandler,
+)
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 import logging
 
 # Enable logging
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
+logging.basicConfig(
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
+)
 logger = logging.getLogger(__name__)
 logger.level = logging.DEBUG
 
+mybots = {}
 pyc = quick_parse_sessions.PyCamp()
 
 
@@ -41,13 +55,15 @@ pyc = quick_parse_sessions.PyCamp()
 # update. Error handlers also receive the raised TelegramError object in error.
 def start(bot, update):
     """Send a message when the command /start is issued."""
-    update.message.reply_text("""Hallo. Ich bin dein PythonCamp Bot.
-
+    update.message.reply_text(
+        """Hallo. Ich bin dein PythonCamp Bot.
+    
 Ich kann Dir Fragen nach der Zeit und den Räumen beantworten.
-
-Tippe 'zeit' oder 'raum'.
-
-""")
+    
+Tippe 'jetzt, 'gleich', 'zeit' oder 'raum' oder nutze die Befehlsfunktion von Telegram.
+    
+"""
+    )
 
 
 def help(bot, update):
@@ -58,17 +74,45 @@ def help(bot, update):
 def echo(bot, update):
     """Echo the user message."""
     logger.debug(update.message.text)
-
     message = update.message.text.lower()
 
-    if message.startswith('t') or message.startswith('z') or \
-            'time' in message or 'zeit' in message:
+    # messages zeit, time
+    if any(
+        [
+            message.startswith("t"),
+            message.startswith("z"),
+            "time" in message,
+            "zeit" in message,
+        ]
+    ):
         return start_times(bot, update)
-    if message.startswith('r') or 'room' in message or 'raum' in message:
+
+    # messages room, raum
+    if any([message.startswith("r"), "room" in message, "raum" in message]):
         return room(bot, update)
 
-    update.message.reply_text('{}? Das habe ich nicht verstanden...'.format(update.message.text))
+    # messages current, jetzt
+    if any([message.startswith("j"),
+            message.startswith("no"),
+            "jetzt" in message, "now" in message]):
+        return sessions_now(bot, update)
 
+    # messages next, gleich
+    if any([message.startswith("g"),
+            message.startswith("n"),
+            'gleich' in message, "next" in message]):
+        return sessions_next(bot, update)
+
+    update.message.reply_text(
+        "{}? Das habe ich nicht verstanden...".format(update.message.text)
+    )
+
+    mybots[update.message.chat_id] = bot
+
+
+def alarm(bot, job):
+    """Send the alarm message."""
+    bot.send_message(job.context, text="Beep!")
 
 
 def error(bot, update, error):
@@ -78,38 +122,46 @@ def error(bot, update, error):
 
 def room(bot, update):
     """Send a message when the command /start is issued."""
-
-    keyboard = [[InlineKeyboardButton(opt, callback_data=opt)] for opt in pyc.filter_rooms(all=True)]
-    reply_markup = InlineKeyboardMarkup(keyboard)
-    update.message.reply_text('Bitte wählen:', reply_markup=reply_markup)
+    if pyc.rooms:
+        keyboard = [
+            [InlineKeyboardButton(opt, callback_data=opt)]
+            for opt in pyc.rooms
+            if not any(
+                ["morgen" in (opt or "").lower(), "ersatz" in (opt or "").lower()]
+            )
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+        update.message.reply_text("Bitte wählen:", reply_markup=reply_markup)
 
 
 def start_times(bot, update):
     """Send a message when the command /start is issued."""
 
-    keyboard = [[InlineKeyboardButton(opt, callback_data=opt)] for opt in pyc.filter_session_times()]
-
-    if not keyboard:
-        update.message.reply_text('keine Startzeiten vorhanden')
-
-    reply_markup = InlineKeyboardMarkup(keyboard)
-    update.message.reply_text('Bitte wählen:', reply_markup=reply_markup)
+    if pyc.filter_session_times():
+        keyboard = [
+            [InlineKeyboardButton(opt, callback_data=opt)]
+            for opt in pyc.filter_session_times()
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+        update.message.reply_text("Bitte wählen:", reply_markup=reply_markup)
 
 
 def return_time_result(timestring):
 
-    _tmp = ['in {}: {}'.format(ev[1], ev[0]) for ev in pyc.filter_session_time(timestring)]
+    _tmp = [
+        "in {}: {}".format(ev[1], ev[0]) for ev in pyc.filter_session_time(timestring)
+    ]
     if not _tmp:
-        _tmp = ['bisher keine geplant.']
-    return 'Sessions um {}\n{}'.format(timestring, '\n'.join(_tmp))
+        _tmp = ["bisher keine geplant."]
+    return "Sessions um {}\n{}".format(timestring, "\n".join(_tmp))
 
 
 def return_room_result(room):
-    _tmp = ['um {}: {}'.format(ev[0], ev[1]) for ev in pyc.filter_session_room(room)]
+    _tmp = ["um {}: {}".format(ev[0], ev[1]) for ev in pyc.filter_session_room(room)]
     if not _tmp:
-        _tmp =  ['bisher keine geplant.']
+        _tmp = ["bisher keine geplant."]
 
-    return 'Sessions in {}\n{}'.format(room, '\n'.join(_tmp))
+    return "Sessions in {}\n{}".format(room, "\n".join(_tmp))
 
 
 def button(bot, update):
@@ -120,15 +172,25 @@ def button(bot, update):
     else:
         text = return_time_result(query.data)
 
-    bot.edit_message_text(text=text,
-                          chat_id=query.message.chat_id,
-                          message_id=query.message.message_id)
+    bot.edit_message_text(
+        text=text, chat_id=query.message.chat_id, message_id=query.message.message_id
+    )
+
+
+def sessions_now(bot, update):
+    timestring, _, current = pyc.get_now_and_next()
+    update.message.reply_text(return_time_result(timestring or current))
+
+
+def sessions_next(bot, update):
+    _, timestring, current = pyc.get_now_and_next()
+    update.message.reply_text(return_time_result(timestring or current))
 
 
 def main():
     """Start the bot."""
 
-    logger.debug('start bot')
+    logger.debug("start bot")
     # Create the EventHandler and pass it your bot's token.
     updater = Updater(TOKEN_TELEGRAM)
 
@@ -145,12 +207,15 @@ def main():
     dp.add_handler(CommandHandler("raum", room))
     dp.add_handler(CommandHandler("zeit", start_times))
 
+    dp.add_handler(CommandHandler("now", sessions_now))
+    dp.add_handler(CommandHandler("jetzt", sessions_now))
+    dp.add_handler(CommandHandler("next", sessions_next))
+    dp.add_handler(CommandHandler("gleich", sessions_next))
+
     updater.dispatcher.add_handler(CallbackQueryHandler(button))
 
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
-
-    # on noncommand i.e message - echo the message on Telegram
 
     # log all errors
     dp.add_error_handler(error)
@@ -164,14 +229,21 @@ def main():
 
     i = 1
     while True:
-        time.sleep(60)
 
-        logger.debug('update')
+        logger.debug("update")
         pyc.update()
         logger.debug(pyc.sessions)
+        time.sleep(60)
+
+        continue
+
+        # kein beep
+        for id, bot in mybots.items():
+            i += 1
+            bot.send_message(id, text="Beep! " + str(i))
 
     updater.idle()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
