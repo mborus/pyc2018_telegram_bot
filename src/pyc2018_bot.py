@@ -23,10 +23,11 @@ import os
 import subprocess
 import requests
 
+from settings import BOT_TOKEN, BOTNAME, SESSION_URL
 
 import quick_parse_sessions
 
-TOKEN_TELEGRAM = "insert api token here"
+TOKEN_TELEGRAM = BOT_TOKEN  #  "insert api token here"
 
 from telegram.ext import (
     Updater,
@@ -161,7 +162,15 @@ def return_room_result(room):
     if not _tmp:
         _tmp = ["bisher keine geplant."]
 
-    return "Sessions in {}\n{}".format(room, "\n".join(_tmp))
+    result = [ "Sessions in {}".format(room) ]
+    creds = pyc.access_creds.get(room.upper())
+    if creds:
+        result.append("Url: {}".format(creds.get('url')))
+        result.append("Code: {}".format(creds.get('access_code')))
+        result.append("")
+    result.extend(_tmp)
+
+    return "\n".join(result)
 
 
 def button(bot, update):

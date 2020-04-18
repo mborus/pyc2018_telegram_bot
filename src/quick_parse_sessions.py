@@ -8,6 +8,8 @@ import time
 
 import datetime
 
+from glom import glom, T, merge
+
 # Enable logging
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
@@ -15,15 +17,11 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 logger.level = logging.DEBUG
 
+from settings import SESSION_URL, BBB_ACCESS_LIST_URL
 
-URL_SA = "https://barcamptools.eu/pycamp201904/events/37163d8f-6122-4d7c-9d07-aa3d87ef00b3#sessions"
-URL_SO = "https://barcamptools.eu/pycamp201904/events/05521a5d-3f4c-4a19-81a9-1f4bc6aa5985#sessions"
-URL = None
-if datetime.datetime.now().day == 13:
-    URL = URL_SO
-if datetime.datetime.now().day == 14:
-    URL = URL_SO
-
+URL_SA = SESSION_URL  # "https://barcamptools.eu/pycamp201904/events/37163d8f-6122-4d7c-9d07-aa3d87ef00b3#sessions"
+URL_SO = SESSION_URL  # "https://barcamptools.eu/pycamp201904/events/05521a5d-3f4c-4a19-81a9-1f4bc6aa5985#sessions"
+URL = SESSION_URL
 
 URL_ADVICE = "http://api.adviceslip.com/advice"
 
@@ -33,6 +31,8 @@ class PyCSession:
         self.title = title
         self.description = description
         self._room = room
+        self._url = None
+        self._access_code = None
 
     @property
     def room(self):
@@ -44,6 +44,18 @@ class PyCSession:
             self._room = value[6:]
         else:
             self._room = value
+        self._url = None
+        self._access_code = None
+
+    @property
+    def url(self):
+        """url for video conference software"""
+        return self._url
+
+    @property
+    def access_code(self):
+        """accesss code for video conference software"""
+        return self._access_code
 
     def __repr__(self):
         return "{} in {}".format(self.title, self.room)
@@ -52,7 +64,8 @@ class PyCSession:
 class PyCamp:
     def __init__(self, fake=False):
         # self.rooms, self.sessions = get_sessionplan_from_file('sa.html')
-        self.rooms, self.sessions = get_sessionplan_from_url(URL)
+        self.access_creds = get_room_access_codes()
+        self.rooms, self.sessions = get_sessionplan_from_url(url=URL, access_creds=self.access_creds)
 
     def filter_session_time(self, timestring):
         return [(v.title, v.room) for v in self.sessions.get(timestring, dict()) if v]
@@ -84,27 +97,22 @@ class PyCamp:
                 )
             )
 
-    def update(self):
+    def update(self, url=URL, access_creds=None):
 
-        url = URL_SA
-        if datetime.datetime.now().day == 13:
-            url = URL_SA
-        if datetime.datetime.now().day == 14:
-            url = URL_SO
-        if datetime.datetime.now().day == 15:
-            url = None
+        if not access_creds:
+            access_creds = self.access_creds
 
         if url:
-            _rooms, _sessions = get_sessionplan_from_url(url)
+            _rooms, _sessions = get_sessionplan_from_url(url=url, access_creds=access_creds)
         else:
             self.sessions = None
+
         if _sessions:
             self.rooms = _rooms
             self.sessions = _sessions
 
         # if datetime.datetime.now().day == 11:
         #    self.sessions = []
-
 
     def get_now_and_next(self):
         now = datetime.datetime.strptime(time.strftime('%H:%M', time.localtime(time.time())), '%H:%M')
@@ -129,7 +137,6 @@ class PyCamp:
         if mynext:
             mynext = datetime.datetime.strftime(mynext, '%H:%M')
         return mynow, mynext, time.strftime('%H:%M', time.localtime(time.time()))
-
 
 
 def cut_session_raw(sessionraw):
@@ -159,16 +166,16 @@ def parse_session_raw(sessionraw):
             if m:
                 current_session.room = m.group(1)
             if not any(
-                [
-                    "morgen" in (current_session.room or "").lower(),
-                    "ersatz" in (current_session.room or "").lower(),
-                ]
+                    [
+                        "morgen" in (current_session.room or "").lower(),
+                        "ersatz" in (current_session.room or "").lower(),
+                    ]
             ):
                 sessions.append(current_session)
     return sessions
 
 
-def get_rooms_and_sessions(body):
+def get_rooms_and_sessions(body, access_creds=None):
     lines = iter(body.split("\n"))
     line = next(lines)
     rooms = []
@@ -210,7 +217,22 @@ def get_rooms_and_sessions(body):
     except StopIteration:
         return None
 
-    return rooms, {k: parse_session_raw(v) for k, v in sessions_raws.items()}
+    sessions = {k: add_credentials(parse_session_raw(v), access_creds=access_creds)
+                for k, v in sessions_raws.items()}
+
+    return rooms, sessions
+
+
+def add_credentials(sessions, access_creds):
+    if sessions:
+        if isinstance(sessions, list):
+            for session in sessions:
+                if isinstance(session._room, str):
+                    credentials = access_creds.get(session._room.upper()).copy()
+                    if credentials:
+                        session._access_code = credentials['access_code']
+                        session._url = credentials['url']
+    return sessions
 
 
 def get_sessionplan_from_file(filename):
@@ -221,8 +243,7 @@ def get_sessionplan_from_file(filename):
     return rooms, sessions
 
 
-def get_sessionplan_from_url(url):
-
+def get_sessionplan_from_url(url, access_creds=None):
     if url:
         r = requests.get(url)
         logger.debug(url)
@@ -232,11 +253,19 @@ def get_sessionplan_from_url(url):
         else:
             logger.debug("update fail")
 
-        rooms, sessions = get_rooms_and_sessions(body)
+        rooms, sessions = get_rooms_and_sessions(body, access_creds=access_creds)
 
         return rooms, sessions
     return None, None
 
+
+def get_room_access_codes(url=BBB_ACCESS_LIST_URL):
+    r = requests.get(url)
+    if r.status_code == 200:
+        spec = ('rooms', [T.values()], [tuple], [{T[0].upper(): {'url': T[1], 'access_code': T[2]}}], merge)
+        return glom(r.json(), spec)
+    else:
+        return {}
 
 
 def random_advice():
@@ -252,4 +281,5 @@ if __name__ == "__main__":
     pprint(pyc.filter_session_room("Raum 13"))
     pprint(pyc.filter_session_times())
     pprint(pyc.filter_rooms())
+    pprint(pyc.access_creds)
     print(random_advice())
